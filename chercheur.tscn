@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://4g8iyk6cljcq"]
+
+[ext_resource type="Script" path="res://chercheur.gd" id="1_4ioag"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11jvk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5ki8e"]
+material = SubResource("StandardMaterial3D_11jvk")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8envb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2gm66"]
+radius = 0.6
+
+[node name="Chercheur" type="CharacterBody3D"]
+script = ExtResource("1_4ioag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_5ki8e")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8envb")
+metadata/_edit_lock_ = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-0.00343824, -0.999994, 0, 0.999994, -0.00343824, 0, 0, 0, 1, 0.490528, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_2gm66")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8uhmxgxsablf"]
+
+[ext_resource type="Script" path="res://cacheur.gd" id="1_davbq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xteuo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkpt1"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_734tn"]
+material = SubResource("StandardMaterial3D_dkpt1")
+
+[node name="Cacheur" type="CharacterBody3D"]
+script = ExtResource("1_davbq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xteuo")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_734tn")
+metadata/_edit_lock_ = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-0.00479963, -0.999988, 0, 0.999988, -0.00479963, 0, 0, 0, 1, 0.474113, 0, 0)
